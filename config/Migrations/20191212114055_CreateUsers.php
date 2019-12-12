@@ -9,6 +9,12 @@ class CreateUsers extends AbstractMigration
         $table
             ->addColumn('username', 'string', [
                 'default' => null,
+                'limit' => 255,
+                'null' => false
+            ])
+           
+            ->addColumn('email', 'string', [
+                'default' => null,
                 'limit' => 50,
                 'null' => false
             ])
@@ -33,7 +39,6 @@ class CreateUsers extends AbstractMigration
             ])
             ->create();
     }
-
     public function down()
     {
         $this->dropTable('users');

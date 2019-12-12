@@ -1,11 +1,12 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateExams extends AbstractMigration
+class CreateCourses extends AbstractMigration
 {
+    
     public function up()
     {
-        $table = $this->table('exams');
+        $table = $this->table('courses');
         $table
             ->addColumn('name', 'string', [
                 'default' => null,
@@ -13,16 +14,6 @@ class CreateExams extends AbstractMigration
                 'null' => false,
             ])
             ->addColumn('duration', 'string', [
-                'default' => null,
-                'limit' => 255,
-                'null' => false,
-            ])
-            ->addColumn('type', 'string', [
-                'default' => null,
-                'limit' => 255,
-                'null' => false,
-            ])
-            ->addColumn('total_marks', 'string', [
                 'default' => null,
                 'limit' => 50,
                 'null' => false,
@@ -39,9 +30,11 @@ class CreateExams extends AbstractMigration
                 'null' => true,
             ])
             ->create();
-            }
-            public function down()
+
+       
+    }
+   public function down()
     {
-        $this->dropTable('exams');
+        $this->dropTable('courses');
     }
 }

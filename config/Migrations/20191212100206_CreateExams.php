@@ -1,25 +1,31 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateCourses1 extends AbstractMigration
+class CreateExams extends AbstractMigration
 {
+
     public function up()
     {
-        $table = $this->table('courses1');
+        $table = $this->table('exams');
         $table
             ->addColumn('name', 'string', [
                 'default' => null,
                 'limit' => 255,
                 'null' => false,
             ])
-            ->addColumn('short_desc', 'string', [
+            ->addColumn('duration', 'string', [
                 'default' => null,
-                'limit' => 255,
+                'limit' => 50,
                 'null' => false,
             ])
-            ->addColumn('long_desc', 'string', [
+            ->addColumn('type', 'string', [
                 'default' => null,
-                'limit' => 255,
+                'limit' => 100,
+                'null' => false,
+            ])
+            ->addColumn('total_marks', 'string', [
+                'default' => null,
+                'limit' => 100,
                 'null' => false,
             ])
             ->addColumn('created', 'datetime', [
@@ -33,9 +39,19 @@ class CreateCourses1 extends AbstractMigration
                 'null' => true,
             ])
             ->create();
-            }
-            public function down()
-    {
-        $this->dropTable('courses1');
+
+       
     }
+
+    public function down()
+    {
+        $this->dropTable('exams');
+    }
+    /**
+     * Change Method.
+     *
+     * More information on this method is available here:
+     * http://docs.phinx.org/en/latest/migrations.html#the-change-method
+     * @return void
+     */
 }
