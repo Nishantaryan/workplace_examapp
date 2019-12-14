@@ -48,8 +48,18 @@ Router::defaultRouteClass(DashedRoute::class);
 Router::prefix('api', function ($routes) {
     $routes->extensions(['json', 'xml']);
     $routes->resources('Cocktails');
-    $routes->resources('Users');
-    Router::connect('/api/users/register', ['controller' => 'Users', 'action' => 'add', 'prefix' => 'api']);
+    $routes->resources('Courses');
+    $routes->resources('Exams');
+    $routes->resources('Questions');
+    $routes->resources('Responses');
+    $routes->resources('Subjects');
+   //$routes->resources('Users');
+   //$routes->resources('Users');
+   //$routes->resources('Users');
+    $routes->resources('ExamsidQuestionsid');
+
+    
+Router::connect('/api/users/register', ['controller' => 'Users', 'action' => 'add', 'prefix' => 'api']);
     $routes->fallbacks('InflectedRoute');   
 });
 
