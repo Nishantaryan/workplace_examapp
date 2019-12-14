@@ -23,6 +23,7 @@
     <fieldset>
         <legend><?= __('Edit Question') ?></legend>
         <?php
+            echo $this->Form->control('name');
             echo $this->Form->control('type');
             echo $this->Form->control('level');
             echo $this->Form->control('negative_marks');

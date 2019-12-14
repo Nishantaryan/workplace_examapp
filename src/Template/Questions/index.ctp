@@ -18,6 +18,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('type') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('level') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('negative_marks') ?></th>
@@ -32,6 +33,7 @@
             <?php foreach ($questions as $question): ?>
             <tr>
                 <td><?= $this->Number->format($question->id) ?></td>
+                <td><?= h($question->name) ?></td>
                 <td><?= h($question->type) ?></td>
                 <td><?= $this->Number->format($question->level) ?></td>
                 <td><?= $this->Number->format($question->negative_marks) ?></td>

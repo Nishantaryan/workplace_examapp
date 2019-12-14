@@ -8,9 +8,14 @@ class CreateQuestions extends AbstractMigration
     {
         $table = $this->table('questions');
         $table
-            ->addColumn('type', 'string', [
+            ->addColumn('name', 'string', [
                 'default' => null,
                 'limit' => 255,
+                'null' => false,
+            ])
+            ->addColumn('type', 'string', [
+                'default' => null,
+                'limit' => 50,
                 'null' => false,
             ])
             ->addColumn('level', 'integer', [

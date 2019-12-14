@@ -7,6 +7,7 @@ use Cake\ORM\Entity;
  * Question Entity
  *
  * @property int $id
+ * @property string $name
  * @property string $type
  * @property int $level
  * @property int $negative_marks
@@ -34,6 +35,7 @@ class Question extends Entity
      * @var array
      */
     protected $_accessible = [
+        'name' => true,
         'type' => true,
         'level' => true,
         'negative_marks' => true,

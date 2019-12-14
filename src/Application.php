@@ -34,6 +34,8 @@ class Application extends BaseApplication
      */
     public function bootstrap()
     {
+        $this->addPlugin('Crud');
+
         $this->addPlugin('Migrations');
 
         $this->addPlugin('ADmad/JwtAuth');

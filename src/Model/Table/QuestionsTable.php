@@ -33,7 +33,8 @@ class QuestionsTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-
+       
+        $this->belongsTo('Exams');
         $this->setTable('questions');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
@@ -58,8 +59,14 @@ class QuestionsTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
+            ->scalar('name')
+            ->maxLength('name', 255)
+            ->requirePresence('name', 'create')
+            ->notEmptyString('name');
+
+        $validator
             ->scalar('type')
-            ->maxLength('type', 255)
+            ->maxLength('type', 50)
             ->requirePresence('type', 'create')
             ->notEmptyString('type');
 
