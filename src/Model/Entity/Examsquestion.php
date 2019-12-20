@@ -4,16 +4,16 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Examsquestion Entity
+ * ExamsQuestion Entity
  *
  * @property int $id
- * @property int $exams_id
- * @property int $questions_id
+ * @property int $exam_id
+ * @property int $question_id
  *
  * @property \App\Model\Entity\Exam $exam
  * @property \App\Model\Entity\Question $question
  */
-class Examsquestion extends Entity
+class ExamsQuestion extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -25,9 +25,9 @@ class Examsquestion extends Entity
      * @var array
      */
     protected $_accessible = [
-        'exams_id' => true,
-        'questions_id' => true,
+        'exam_id' => true,
+        'question_id' => true,
         'exam' => true,
-        'question' => true
+        'question' => true,
     ];
 }

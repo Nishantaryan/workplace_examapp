@@ -45,8 +45,8 @@ class ExamsFixture extends TestFixture
                 'duration' => 'Lorem ipsum dolor sit amet',
                 'type' => 'Lorem ipsum dolor sit amet',
                 'total_marks' => 'Lorem ipsum dolor sit amet',
-                'created' => '2019-12-12 13:09:28',
-                'modified' => '2019-12-12 13:09:28'
+                'created' => '2019-12-20 10:30:12',
+                'modified' => '2019-12-20 10:30:12',
             ],
         ];
         parent::init();

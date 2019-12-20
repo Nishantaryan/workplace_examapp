@@ -21,7 +21,8 @@ class ExamsControllerTest extends TestCase
      */
     public $fixtures = [
         'app.Exams',
-        'app.Responses'
+        'app.ExamQuestion',
+        'app.Responses',
     ];
 
     /**

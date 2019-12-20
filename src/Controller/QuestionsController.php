@@ -19,6 +19,9 @@ class QuestionsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Exams'],
+        ];
         $questions = $this->paginate($this->Questions);
 
         $this->set(compact('questions'));
@@ -34,7 +37,7 @@ class QuestionsController extends AppController
     public function view($id = null)
     {
         $question = $this->Questions->get($id, [
-            'contain' => ['Responses']
+            'contain' => ['Exams', 'Responses'],
         ]);
 
         $this->set('question', $question);
@@ -57,7 +60,8 @@ class QuestionsController extends AppController
             }
             $this->Flash->error(__('The question could not be saved. Please, try again.'));
         }
-        $this->set(compact('question'));
+        $exams = $this->Questions->Exams->find('list', ['limit' => 200]);
+        $this->set(compact('question', 'exams'));
     }
 
     /**
@@ -70,7 +74,7 @@ class QuestionsController extends AppController
     public function edit($id = null)
     {
         $question = $this->Questions->get($id, [
-            'contain' => []
+            'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $question = $this->Questions->patchEntity($question, $this->request->getData());
@@ -81,7 +85,8 @@ class QuestionsController extends AppController
             }
             $this->Flash->error(__('The question could not be saved. Please, try again.'));
         }
-        $this->set(compact('question'));
+        $exams = $this->Questions->Exams->find('list', ['limit' => 200]);
+        $this->set(compact('question', 'exams'));
     }
 
     /**

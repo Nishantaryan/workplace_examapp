@@ -7,21 +7,21 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Examsquestions Model
+ * ExamsQuestions Model
  *
  * @property \App\Model\Table\ExamsTable&\Cake\ORM\Association\BelongsTo $Exams
  * @property \App\Model\Table\QuestionsTable&\Cake\ORM\Association\BelongsTo $Questions
  *
- * @method \App\Model\Entity\Examsquestion get($primaryKey, $options = [])
- * @method \App\Model\Entity\Examsquestion newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Examsquestion[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Examsquestion|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Examsquestion saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Examsquestion patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Examsquestion[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Examsquestion findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\ExamsQuestion get($primaryKey, $options = [])
+ * @method \App\Model\Entity\ExamsQuestion newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\ExamsQuestion[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\ExamsQuestion|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\ExamsQuestion saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\ExamsQuestion patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\ExamsQuestion[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\ExamsQuestion findOrCreate($search, callable $callback = null, $options = [])
  */
-class ExamsquestionsTable extends Table
+class ExamsQuestionsTable extends Table
 {
     /**
      * Initialize method
@@ -33,17 +33,17 @@ class ExamsquestionsTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('examsquestions');
+        $this->setTable('exams_questions');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Exams', [
-            'foreignKey' => 'exams_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'exam_id',
+            'joinType' => 'INNER',
         ]);
         $this->belongsTo('Questions', [
-            'foreignKey' => 'questions_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'question_id',
+            'joinType' => 'INNER',
         ]);
     }
 
@@ -71,8 +71,8 @@ class ExamsquestionsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['exams_id'], 'Exams'));
-        $rules->add($rules->existsIn(['questions_id'], 'Questions'));
+        $rules->add($rules->existsIn(['exam_id'], 'Exams'));
+        $rules->add($rules->existsIn(['question_id'], 'Questions'));
 
         return $rules;
     }

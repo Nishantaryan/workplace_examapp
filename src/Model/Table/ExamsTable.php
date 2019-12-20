@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Exams Model
  *
  * @property \App\Model\Table\ResponsesTable&\Cake\ORM\Association\HasMany $Responses
+ * @property &\Cake\ORM\Association\BelongsToMany $Questions
  *
  * @method \App\Model\Entity\Exam get($primaryKey, $options = [])
  * @method \App\Model\Entity\Exam newEntity($data = null, array $options = [])
@@ -41,7 +42,12 @@ class ExamsTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->hasMany('Responses', [
-            'foreignKey' => 'exam_id'
+            'foreignKey' => 'exam_id',
+        ]);
+        $this->belongsToMany('Questions', [
+            'foreignKey' => 'exam_id',
+            'targetForeignKey' => 'question_id',
+            'joinTable' => 'exams_questions',
         ]);
     }
 

@@ -14,6 +14,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
+ * @property \App\Model\Entity\ExamQuestion[] $exam_question
  * @property \App\Model\Entity\Response[] $responses
  */
 class Exam extends Entity
@@ -34,6 +35,7 @@ class Exam extends Entity
         'total_marks' => true,
         'created' => true,
         'modified' => true,
-        'responses' => true
+        'exam_question' => true,
+        'responses' => true,
     ];
 }

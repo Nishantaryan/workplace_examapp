@@ -57,6 +57,8 @@ Router::prefix('api', function ($routes) {
    //$routes->resources('Users');
    //$routes->resources('Users');
     $routes->resources('ExamsidQuestionsid');
+    $routes->resources('ExamsQuestions');
+
 
     
 Router::connect('/api/users/register', ['controller' => 'Users', 'action' => 'add', 'prefix' => 'api']);

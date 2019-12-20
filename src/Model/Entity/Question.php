@@ -21,6 +21,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
+ * @property \App\Model\Entity\Exam $exam
  * @property \App\Model\Entity\Response[] $responses
  */
 class Question extends Entity
@@ -48,6 +49,7 @@ class Question extends Entity
         'option_count' => true,
         'created' => true,
         'modified' => true,
-        'responses' => true
+        'exam' => true,
+        'responses' => true,
     ];
 }

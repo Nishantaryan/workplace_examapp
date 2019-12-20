@@ -13,4 +13,14 @@ class ExamsController extends AppController
             'id', 'name'
         ]
     ];
+
+    public function view($id){
+        $this->Crud->on('beforeFind', function(\Cake\Event\Event $event) 
+        {
+            //$event->subject()->query->contain(['Types','Menus']);
+            
+            $event->subject()->query->contain(['questions']);
+        });
+        return $this->Crud->execute();
+     }
 }

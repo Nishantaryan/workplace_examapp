@@ -34,7 +34,7 @@ class ExamsController extends AppController
     public function view($id = null)
     {
         $exam = $this->Exams->get($id, [
-            'contain' => ['Responses']
+            'contain' => ['ExamQuestion', 'Responses'],
         ]);
 
         $this->set('exam', $exam);
@@ -70,7 +70,7 @@ class ExamsController extends AppController
     public function edit($id = null)
     {
         $exam = $this->Exams->get($id, [
-            'contain' => []
+            'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $exam = $this->Exams->patchEntity($exam, $this->request->getData());
